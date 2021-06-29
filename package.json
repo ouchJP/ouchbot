@@ -1,0 +1,26 @@
+{
+  "name": "ouchbot",
+  "version": "1.0.0",
+  "description": "personal discord bot for ouchcord",
+  "main": "app.js",
+  "dependencies": {
+    "discord-reply": "^0.1.2",
+    "discord-starboards": "^2.2.3",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ouchJP/ouchbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ouchJP/ouchbot/issues"
+  },
+  "homepage": "https://github.com/ouchJP/ouchbot#readme"
+}
