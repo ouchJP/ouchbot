@@ -89,7 +89,7 @@ vndb
   .then(response => {
     // Use the response
     console.log(response.items[0]['original'])
-    message.channel.send("Your random VN is: " + JSON.stringify(response.items[0]['original']) + ' ' + JSON.stringify(response.items[0]['title']) + ` https://vndb.org/v${x})`);
+    message.channel.send("Your random VN is: " + JSON.stringify(response.items[0]['original']) + ' ' + JSON.stringify(response.items[0]['title']) + ` https://vndb.org/v${x}`);
   })
   .catch(err => {
     // Handle errors
