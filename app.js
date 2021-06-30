@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const VNDB = require('vndb-api')
 require('dotenv').config();
 require('discord-reply');
 require('discord-starboards');
@@ -70,6 +71,34 @@ client.on("guildMemberRemove", (member) => {
   console.log(member.user.id + ' left' + member.user.tag);
 });
 
+//////////////// VNDB ROULETTE //////////////////////////////
+
+const vndb = new VNDB("ouchbot");
+ 
+function rand(min, max) {
+  let randomNum = Math.random() * (max - min) + min;
+  return Math.floor(randomNum);
+}
+ 
+client.on('message', message => {
+  if (message.content === '!vnrandom') {
+    let x = rand(0, 30084)
+ 
+vndb
+  .query(`get vn basic (id = ${x})`)
+  .then(response => {
+    // Use the response
+    console.log(response.items[0]['original'])
+    message.channel.send("Your random VN is: " + JSON.stringify(response.items[0]['original']) + ' ' + JSON.stringify(response.items[0]['title']) + ` https://vndb.org/v${x})`);
+  })
+  .catch(err => {
+    // Handle errors
+    console.log(err)
+  })
+  .finally(() => {
+  })
+ 
+}});
 
 ////////////////FUN STUFF//////////////////
 

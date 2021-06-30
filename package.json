@@ -7,7 +7,8 @@
     "discord-reply": "^0.1.2",
     "discord-starboards": "^2.2.3",
     "discord.js": "^12.5.3",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "vndb-api": "^1.0.3"
   },
   "devDependencies": {},
   "scripts": {
