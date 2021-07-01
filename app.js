@@ -104,7 +104,7 @@ vndb
 
 const CensorWords = ["nigger", "faggot", "tranny"]
 const Ouch = ["ouch"]
-const Ouch = ["i miss ouch"]
+const Miss = ["i miss ouch"]
 const DontCare = [`Don't care`, `dont care`]
 client.on("message", message => {
   if (CensorWords.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`Banned word detected. Reported to discord staff.`) };
