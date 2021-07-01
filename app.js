@@ -103,19 +103,20 @@ vndb
 ////////////////FUN STUFF//////////////////
 
 const CensorWords = ["nigger", "faggot", "tranny"]
-//const Shoui = ["shoui"]
-//const Sava = ["sava"]
+const Ouch = ["ouch"]
+const Ouch = ["i miss ouch"]
 const DontCare = [`Don't care`, `dont care`]
 client.on("message", message => {
   if (CensorWords.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`Banned word detected. Reported to discord staff.`) };
 });
-//client.on("message", message => {
-//  if (Shoui.some(word => message.toString().toLowerCase().includes(word))) {message.reply(`https://cdn.discordapp.com/attachments/859302431342985217/859302466906882070/1624904068264.png`)};
-///});
-//client.on("message", message => {
-//  if (message.author.bot) return;
-//  if (Sava.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`<a:SavaAndAiden:857953498498859038>`)};
-///});
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (Ouch.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`https://cf.ltkcdn.net/dying/images/orig/239669-2131x1407-flowers-on-a-grave.jpg`)};
+});
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (Miss.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`Ouch misses you too.`)};
+});
 client.on("message", message => {
   if (message.author.bot) return;
   if (DontCare.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`<a:dontcare:852797960746958858>`) };
