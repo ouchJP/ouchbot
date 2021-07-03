@@ -103,16 +103,16 @@ vndb
 ////////////////FUN STUFF//////////////////
 
 const CensorWords = ["nigger", "faggot", "tranny"]
-const Ouch = ["ouch"]
+//const Ouch = ["ouch"]
 const Miss = ["i miss ouch"]
 const DontCare = [`Don't care`, `dont care`]
 client.on("message", message => {
   if (CensorWords.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`Banned word detected. Reported to discord staff.`) };
 });
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (Ouch.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`https://cf.ltkcdn.net/dying/images/orig/239669-2131x1407-flowers-on-a-grave.jpg`)};
-});
+//client.on("message", message => {
+//  if (message.author.bot) return;
+//  if (Ouch.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`https://cf.ltkcdn.net/dying/images/orig/239669-2131x1407-flowers-on-a-grave.jpg`)};
+//});
 client.on("message", message => {
   if (message.author.bot) return;
   if (Miss.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`Ouch misses you too.`)};
