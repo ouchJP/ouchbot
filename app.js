@@ -74,15 +74,15 @@ client.on("guildMemberRemove", (member) => {
 ////////////////FUN STUFF//////////////////
 
 const CensorWords = ["nigger", "faggot", "tranny"]
-//const Shoui = ["shoui"]
+const Shoui = ["how old are you"]
 //const Sava = ["sava"]
 const DontCare = [`Don't care`, `dont care`]
 client.on("message", message => {
   if (CensorWords.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`Banned word detected. Reported to discord staff.`) };
 });
-//client.on("message", message => {
-//  if (Shoui.some(word => message.toString().toLowerCase().includes(word))) {message.reply(`https://cdn.discordapp.com/attachments/859302431342985217/859302466906882070/1624904068264.png`)};
-///});
+client.on("message", message => {
+  if (Shoui.some(word => message.toString().toLowerCase().includes(word))) {message.reply(`You think you fuckers are so funny, huh? "Oh chicken asked me my age, i better say some ridiculous number that is retarded on its face." But in reality, you're the one who's retarded on his face. You dont have the slightest idea how hard i work to make these age jokes. If you niggers got off your ass for one second and gave half a bit of thought towards anything you'd be half as funny as me. Actually I'm fucking tired of you fucks. I hope your next birthday is your last, you stupid puss pouring cunt.`)};
+});
 //client.on("message", message => {
 //  if (message.author.bot) return;
 //  if (Sava.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`<a:SavaAndAiden:857953498498859038>`)};
