@@ -103,16 +103,17 @@ vndb
 ////////////////FUN STUFF//////////////////
 
 const CensorWords = ["nigger", "faggot", "tranny"]
-//const Ouch = ["ouch"]
+const HowOld = ["how old are you"]
 const Miss = ["i miss ouch"]
 const DontCare = [`Don't care`, `dont care`]
 client.on("message", message => {
   if (CensorWords.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`Banned word detected. Reported to discord staff.`) };
 });
-//client.on("message", message => {
-//  if (message.author.bot) return;
-//  if (Ouch.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`https://cf.ltkcdn.net/dying/images/orig/239669-2131x1407-flowers-on-a-grave.jpg`)};
-//});
+client.on("message", message => {
+if (message.author.bot) return;
+  if (HowOld.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`
+  You think you fuckers are so funny, huh? "Oh chicken asked me my age, i better say some ridiculous number that is retarded on its face." But in reality, you're the one who's retarded on his face. You dont have the slightest idea how hard i work to make these age jokes. If you niggers got off your ass for one second and gave half a bit of thought towards anything you'd be half as funny as me. Actually I'm fucking tired of you fucks. I hope your next birthday is your last, you stupid puss pouring cunt.`)};
+});
 client.on("message", message => {
   if (message.author.bot) return;
   if (Miss.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`Ouch misses you too.`)};
