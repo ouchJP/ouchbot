@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const VNDB = require('vndb-api')
 require('dotenv').config();
 require('discord-reply');
 require('discord-starboards');
@@ -70,23 +71,53 @@ client.on("guildMemberRemove", (member) => {
   console.log(member.user.id + ' left' + member.user.tag);
 });
 
+//////////////// VNDB ROULETTE //////////////////////////////
+
+const vndb = new VNDB("ouchbot");
+ 
+function rand(min, max) {
+  let randomNum = Math.random() * (max - min) + min;
+  return Math.floor(randomNum);
+}
+ 
+client.on('message', message => {
+  if (message.content === '!vnrandom') {
+    let x = rand(0, 30084)
+ 
+vndb
+  .query(`get vn basic (id = ${x})`)
+  .then(response => {
+    // Use the response
+    console.log(response.items[0]['original'])
+    message.channel.send("Your random VN is: " + JSON.stringify(response.items[0]['original']) + ' ' + JSON.stringify(response.items[0]['title']) + ` https://vndb.org/v${x}`);
+  })
+  .catch(err => {
+    // Handle errors
+    console.log(err)
+  })
+  .finally(() => {
+  })
+ 
+}});
 
 ////////////////FUN STUFF//////////////////
 
 const CensorWords = ["nigger", "faggot", "tranny"]
-const Shoui = ["how old are you"]
-//const Sava = ["sava"]
+const HowOld = ["how old are you"]
+const Miss = ["i miss ouch"]
 const DontCare = [`Don't care`, `dont care`]
 client.on("message", message => {
   if (CensorWords.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`Banned word detected. Reported to discord staff.`) };
 });
 client.on("message", message => {
-  if (Shoui.some(word => message.toString().toLowerCase().includes(word))) {message.reply(`You think you fuckers are so funny, huh? "Oh chicken asked me my age, i better say some ridiculous number that is retarded on its face." But in reality, you're the one who's retarded on his face. You dont have the slightest idea how hard i work to make these age jokes. If you niggers got off your ass for one second and gave half a bit of thought towards anything you'd be half as funny as me. Actually I'm fucking tired of you fucks. I hope your next birthday is your last, you stupid puss pouring cunt.`)};
+if (message.author.bot) return;
+  if (HowOld.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`
+  You think you fuckers are so funny, huh? "Oh chicken asked me my age, i better say some ridiculous number that is retarded on its face." But in reality, you're the one who's retarded on his face. You dont have the slightest idea how hard i work to make these age jokes. If you niggers got off your ass for one second and gave half a bit of thought towards anything you'd be half as funny as me. Actually I'm fucking tired of you fucks. I hope your next birthday is your last, you stupid puss pouring cunt.`)};
 });
-//client.on("message", message => {
-//  if (message.author.bot) return;
-//  if (Sava.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`<a:SavaAndAiden:857953498498859038>`)};
-///});
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (Miss.some(word => message.toString().toLowerCase().includes(word))) {message.channel.send(`Ouch misses you too.`)};
+});
 client.on("message", message => {
   if (message.author.bot) return;
   if (DontCare.some(word => message.toString().toLowerCase().includes(word))) { message.lineReply(`<a:dontcare:852797960746958858>`) };
